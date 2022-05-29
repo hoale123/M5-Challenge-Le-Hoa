@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Catalog-Microservice/Catalog-Microservice.iml" filepath="$PROJECT_DIR$/Catalog-Microservice/Catalog-Microservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Invoice-mircoservice/Invoice-mircoservice.iml" filepath="$PROJECT_DIR$/Invoice-mircoservice/Invoice-mircoservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/M5-Challenge-Le-Hoa.iml" filepath="$PROJECT_DIR$/.idea/M5-Challenge-Le-Hoa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/starter/gamestore/gamestore.iml" filepath="$PROJECT_DIR$/starter/gamestore/gamestore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/registry/registry.iml" filepath="$PROJECT_DIR$/registry/registry.iml" />
+    </modules>
+  </component>
+</project>
