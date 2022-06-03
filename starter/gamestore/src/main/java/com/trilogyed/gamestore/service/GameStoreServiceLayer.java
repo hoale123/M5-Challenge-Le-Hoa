@@ -122,7 +122,6 @@ public class GameStoreServiceLayer {
         }
 
         invoice.setQuantity(invoiceViewModel.getQuantity());
-
         invoice.setSubtotal(
                 invoice.getUnitPrice().multiply(
                         new BigDecimal(invoiceViewModel.getQuantity())).setScale(2, RoundingMode.HALF_UP));
