@@ -4,6 +4,10 @@ insert into invoice
 	(`name`, street, city, state, zipcode, item_type, item_id, unit_price, quantity, subtotal, tax, processing_fee, total)
 	values('Eng',null,'Eagan','MN','55555','Console',1,249.99,1,249.99,10.00,2,261.99);
 
+insert into invoice
+    (`name`, street, city, state, zipcode, item_type, item_id, unit_price, quantity, subtotal, tax, processing_fee, total)
+    values('Hoa',null,'Eagan','MN','55555','Console',1,249.99,1,249.99,10.00,2,261.99);
+
 insert into fee
 	(product_type, fee)
 	values ('Console', 14.99),('Game', 1.49),('T-Shirt', 1.98);
