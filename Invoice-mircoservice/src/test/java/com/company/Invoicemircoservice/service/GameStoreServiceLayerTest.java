@@ -38,6 +38,7 @@ public class GameStoreServiceLayerTest {
         setUpInvoiceRepositoryMock();
         setUpProcessingFeeRepositoryMock();
         setUpTaxRepositoryMock();
+        setUpInvoiceClientMock();
 
         service = new GameStoreServiceLayer(invoiceRepository,taxRepository,processingFeeRepository,invoiceClient);
     }
@@ -45,14 +46,13 @@ public class GameStoreServiceLayerTest {
     //Testing Invoice Operations...
     @Test
     public void shouldCreateFindInvoice() {
-        ConsoleViewModel console = new ConsoleViewModel();
-        console.setModel("Playstation");
-        console.setManufacturer("Sony");
-        console.setMemoryAmount("120gb");
-        console.setProcessor("Intel I7-9750H");
-        console.setPrice(new BigDecimal("299.99"));
-        console.setQuantity(1);
-        console = invoiceClient.createConsole(console);
+        TShirtViewModel tShirt = new TShirtViewModel();
+        tShirt.setId(54);
+        tShirt.setSize("Medium");
+        tShirt.setColor("Blue");
+        tShirt.setDescription("V-Neck");
+        tShirt.setPrice(new BigDecimal("19.99"));
+        tShirt.setQuantity(5);
 
         InvoiceViewModel invoiceViewModel = new InvoiceViewModel();
         invoiceViewModel.setName("John Jake");
@@ -60,9 +60,11 @@ public class GameStoreServiceLayerTest {
         invoiceViewModel.setCity("Charlotte");
         invoiceViewModel.setState("NC");
         invoiceViewModel.setZipcode("83749");
-        invoiceViewModel.setItemType("Console");
+        invoiceViewModel.setItemType("T-Shirt");
         invoiceViewModel.setItemId(54);
         invoiceViewModel.setQuantity(2);
+
+        doReturn(tShirt).when(invoiceClient).getTShirt(54);
 
         invoiceViewModel = service.createInvoice(invoiceViewModel);
 
@@ -262,20 +264,22 @@ public class GameStoreServiceLayerTest {
 
     @Test(expected = NullPointerException.class)
     public void shouldFailWhenCreateInvoiceInvalidInvoiceMV() {
-//        TShirtViewModel tShirt = new TShirtViewModel();
-//        tShirt.setSize("Medium");
-//        tShirt.setColor("Blue");
-//        tShirt.setDescription("V-Neck");
-//        tShirt.setPrice(new BigDecimal("19.99"));
-//        tShirt.setQuantity(5);
-//        tShirt = service.createTShirt(tShirt);
+        TShirtViewModel tShirt = new TShirtViewModel();
+        tShirt.setSize("Medium");
+        tShirt.setColor("Blue");
+        tShirt.setDescription("V-Neck");
+        tShirt.setPrice(new BigDecimal("19.99"));
+        tShirt.setQuantity(5);
 
         InvoiceViewModel invoiceViewModel = null;
 
         invoiceViewModel = service.createInvoice(invoiceViewModel);
     }
 
+private void setUpInvoiceClientMock(){
+        invoiceClient = mock(InvoiceClient.class);
 
+}
     private void setUpInvoiceRepositoryMock() {
         invoiceRepository = mock(InvoiceRepository.class);
 
